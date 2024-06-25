@@ -22,3 +22,4 @@ end
 profile_laplacian(lap, in_field)
 profile_laplacian(lap_vectorized, in_field)
 profile_laplacian(lap_vectorized_optimized, in_field)
+profile_laplacian(lap_vectorized_optimized_simd, in_field)

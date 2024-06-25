@@ -1,8 +1,8 @@
 module Laplacian
 
-export lap, lap_vectorized, lap_vectorized_optimized
+export lap, lap_vectorized, lap_vectorized_optimized, lap_vectorized_optimized_simd
 
-using LinearAlgebra, Printf
+using LinearAlgebra, Printf, Base.Threads
 
 function lap(in_field::Matrix{Float64})::Matrix{Float64}
     nrows, ncols = size(in_field)
@@ -49,6 +49,25 @@ function lap_vectorized_optimized(in_field::Matrix{Float64})::Matrix{Float64}
 
     # Calculate using views to avoid extra allocations
     @. out_field[2:end-1, 2:end-1] = -4 * in_field[2:end-1, 2:end-1] + north + south + west + east
+
+    return out_field
+end
+
+function lap_vectorized_optimized_simd(in_field::Matrix{Float64})::Matrix{Float64}
+    nrows, ncols = size(in_field)
+    out_field = zeros(Float64, nrows, ncols)
+    out_field .= in_field
+
+     # Threading and SIMD applied to manual loop for potentially greater control and optimization
+     @threads for j = 2:ncols-1
+        @simd for i = 2:nrows-1
+            out_field[i, j] = -4 * in_field[i, j] +
+                              in_field[i-1, j] +  # North
+                              in_field[i+1, j] +  # South
+                              in_field[i, j-1] +  # West
+                              in_field[i, j+1]    # East
+        end
+    end
 
     return out_field
 end

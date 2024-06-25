@@ -17,3 +17,7 @@ println("Timing vectorized implementation:")
 # Time the vectorized and optimized implementation
 println("Timing vectorized and optimized implementation:")
 @time lap_vectorized_optimized(in_field)
+
+# Time the vectorized and optimized implementation
+println("Timing vectorized and optimized implementation:")
+@time lap_vectorized_optimized_simd(in_field)
