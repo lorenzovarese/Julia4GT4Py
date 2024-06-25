@@ -13,3 +13,7 @@ println("Timing loop-based implementation:")
 # Time the vectorized implementation
 println("Timing vectorized implementation:")
 @time lap_vectorized(in_field)
+
+# Time the vectorized and optimized implementation
+println("Timing vectorized and optimized implementation:")
+@time lap_vectorized_optimized(in_field)
