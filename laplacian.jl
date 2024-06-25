@@ -1,3 +1,9 @@
+module Laplacian
+
+export lap, lap_vectorized
+
+using LinearAlgebra
+
 using Printf
 
 function lap(in_field::Matrix{Float64})::Matrix{Float64}
@@ -14,6 +20,20 @@ function lap(in_field::Matrix{Float64})::Matrix{Float64}
                                 in_field[i, j-1]
         end
     end
+
+    return out_field
+end
+
+function lap_vectorized(in_field::Matrix{Float64})::Matrix{Float64}
+    nrows, ncols = size(in_field)
+    out_field = zeros(Float64, nrows, ncols)
+    out_field .= in_field # Copy inplace: to keep the initial values in the border
+    # Vectorized operations (with slicing)
+    out_field[2:end-1, 2:end-1] = -4 * in_field[2:end-1, 2:end-1] +
+                                    in_field[3:end, 2:end-1]   +  # i+1
+                                    in_field[1:end-2, 2:end-1] +  # i-1
+                                    in_field[2:end-1, 3:end]   +  # j+1
+                                    in_field[2:end-1, 1:end-2]    # j-1
 
     return out_field
 end
@@ -92,3 +112,5 @@ end
 
 # Call the test function
 test_laplacian_operations()
+
+end # Module's end
