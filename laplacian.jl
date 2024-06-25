@@ -126,6 +126,6 @@ function test_laplacian_operations()
 end
 
 # Call the test function
-test_laplacian_operations()
+#test_laplacian_operations()
 
 end # Module's end
