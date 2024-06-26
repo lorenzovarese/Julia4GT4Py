@@ -1,5 +1,6 @@
 
 macro derivative(expr)
+    # Reduce the code duplication here (after fixing the inner function for the advanced cases)
     expr_type = typeof(expr)
     if expr == :x
         return :(1)
