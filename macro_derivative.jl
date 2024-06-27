@@ -56,6 +56,10 @@ expr_d_dx = @derivative 2x + 3
 expr_d_dx = @derivative x^2
 @assert expr_d_dx == :(2*x) # TODO: fix this case
 
+# Handy methods
+dump(:(x^2))
+@macroexpand @derivative(x^2)
+
 expr_d_dx = @derivative 2x^2
 @assert expr_d_dx == :(2*x) # TODO: fix this case
 
