@@ -23,7 +23,7 @@ macro derivative(expr)
                 return e.args[2]
             # Case x^b
             elseif e.args[1] == :^ && e.args[2] == :x && typeof(e.args[3]) == Int64
-                return :($(e.args[3]) * $(e.args[3]) ^ ($(e.args[2])-1))
+                return :($(e.args[3]) * $(e.args[2]) ^ ($(e.args[3])-1))
             # Case a*x^b
             elseif e.args[1] == :* && typeof(e.args[2]) == Int64 && typeof(e.args[3])== Expr 
                 power_expr = e.args[3]
@@ -54,10 +54,10 @@ expr_d_dx = @derivative 2x + 3
 @assert expr_d_dx == :(2)
 
 expr_d_dx = @derivative x^2
-@assert expr_d_dx == :(2x) # TODO: fix this case
+@assert expr_d_dx == :(2*x) # TODO: fix this case
 
 expr_d_dx = @derivative 2x^2
-@assert expr_d_dx == :(2x) # TODO: fix this case
+@assert expr_d_dx == :(2*x) # TODO: fix this case
 
 expr_d_dx = @derivative :(x^2+x^3)
 @assert expr_d_dx == :(2*x+3*x^2) # TODO: fix this case
