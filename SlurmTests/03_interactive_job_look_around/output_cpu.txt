@@ -1,0 +1,30 @@
+lvarese@nid00075:/scratch/snx3000/lvarese> lscpu
+Architektur:                   x86_64
+CPU Operationsmodus:           32-bit, 64-bit
+Byte-Reihenfolge:              Little Endian
+Adressgrößen:                  46 bits physical, 48 bits virtual
+CPU(s):                        72
+Liste der Online-CPU(s):       0-71
+Thread(s) pro Kern:            2
+Kern(e) pro Socket:            18
+Sockel:                        2
+NUMA-Knoten:                   2
+Anbieterkennung:               GenuineIntel
+Prozessorfamilie:              6
+Modell:                        79
+Modellname:                    Intel(R) Xeon(R) CPU E5-2695 v4 @ 2.10GHz
+Stepping:                      1
+CPU MHz:                       1491.814
+Maximale Taktfrequenz der CPU: 2101.0000
+Minimale Taktfrequenz der CPU: 1200.0000
+BogoMIPS:                      4200.22
+Virtualisierung:               VT-x
+L1d Cache:                     32K
+L1i Cache:                     32K
+L2 Cache:                      256K
+L3 Cache:                      46080K
+NUMA-Knoten0 CPU(s):           0-17,36-53
+NUMA-Knoten1 CPU(s):           18-35,54-71
+Markierungen:                  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single pti intel_ppin ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid
+
+
