@@ -1,4 +1,9 @@
 
+Compile the code:
+```shell
+gcc -o multicore_app multicore_app.c -fopenmp
+```
+
 Execute the job:
 ```shell
 sbatch job_multicore.sh
