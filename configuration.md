@@ -186,10 +186,12 @@ spack env activate <myenv_name>
 #### Compilation Error
 If you need to change the current gcc compiler to fix some compilation problem you can follow this procedure.
 
-1. `spack location --install-dir gcc@11` (Important: this needs to be executed outside your environment)
-2. Activate your env
-3. `spack compiler rm -a gcc`
-4. `spack compiler find <INSTALL DIR FROM ABOVE>`
+1. Deactivate the current enviroment
+2. Install the new compiler `spack install gcc@<specific.version>`
+3. `spack location --install-dir gcc@<version>` (Important: this needs to be executed outside your environment)
+4. Activate your env
+5. `spack compiler rm -a gcc`
+6. `spack compiler find <INSTALL DIR FROM ABOVE>`
 
 Then you can move to your environment and try again to compile. If you obtain an error, it is possible that other packages have been concretized with the preavious compiler version, to enforce the concretization with the new compiler you can use `spack concretize --force`.
 To check the current/available compiler you can use the command: `spack compiler list`
