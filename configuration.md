@@ -70,8 +70,6 @@ If you prefer to use zsh instead of bash here an easy guide to setup it.
 zsh
 ```
 
-
-
 ### Install Oh-My-Zsh
 
 1. After connecting via ssh, run the command to install oh-my-zsh (check the updated one on the [repo](https://github.com/ohmyzsh/ohmyzsh)):
@@ -79,17 +77,20 @@ zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-2. Go to the home folder:
+2. Run the zsh command and select "no" to the option of the default terminal:
+```bash
+Time to change your default shell to zsh:
+Do you want to change your default shell to zsh? [Y/n]
+
+n
+```
+
+3. Go to the home folder:
 ```bash
 cd $HOME
 ```
 
-3. Run the zsh command and select "no" to the option of the default terminal:
-```bash
-zsh
-```
-
-3. Create/Update the `.bash_profile` file adding the following commands:
+4. Create/Update the `.bash_profile` file adding the following commands:
 ```bash 
 tty > /dev/null
 if [[ $? == 0 ]]; then
@@ -104,7 +105,7 @@ fi
 ```
 Note: this is useful to avoid the automatic run of scripts at at each run of the terminal, and at the same time it guarantees the `zsh` on startup.
 
-3. Customize zsh (optional). Open the confiuration file:
+5. Customize zsh (optional). Open the confiuration file:
 ```bash
 vi ~/.zshrc
 ```
@@ -121,12 +122,12 @@ ZSH_THEME="<CHANGE THIS>" # I personally use `agnoster`
 ...
 ```
 
-4. List of suggested plugins:
+6. List of suggested plugins:
  - [Syntax highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
  - [Auto suggestions](https://github.com/zsh-users/zsh-autosuggestions)
  - [History substring search](https://github.com/zsh-users/zsh-history-substring-search)
 
-5. Reload zsh to apply the changes.
+7. Reload zsh to apply the changes.
 ```bash
 source ~/.zshrc
 ```

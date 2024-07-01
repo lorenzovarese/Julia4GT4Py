@@ -75,9 +75,11 @@ end
 # Benchmark ib_sum using @time
 s = 0
 @time for i in 1:1000000
-    global s
+    global s 
     s += ib_sum(rand_array)
 end
+
+# TODO: wrap it in a function and check the performance difference (to avoid access to the global)
 
 # BenckmarkTools alternative
 
