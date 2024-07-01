@@ -158,11 +158,13 @@ spack:
     - py-pip
     - boost
     - cmake
-    #- py-cupy cuda_arch=60 ^cuda+allow-unsupported-compilers ^nccl+cuda cuda_arch=60
+    - py-cupy ...
     view: true
     concretizer:
       unify: true
 ```
+
+See the folder [`Configurations`](SlurmTests/Configurations).
 
 5. Create a new Spack environment (the configuration is optional):
 ```bash
