@@ -59,6 +59,10 @@ Before diving into the projects, ensure your development environment is set up c
   - Apply advanced Julia optimization flags to improve performance. (TODO)
   - Explore embedded GPU backend possibilities with GridTools.jl and related compiler optimizations. (TODO)
 
+## Configuration
+
+See the [`configuration.md`](/configuration.md).
+
 ## Additional Resources
 
 - **SLURM Job Management:** [SLURM Documentation](https://slurm.schedmd.com/documentation.html)
