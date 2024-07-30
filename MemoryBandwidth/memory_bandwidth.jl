@@ -57,13 +57,15 @@ function estimate_bandwidth()
 end
 
 function main()
+    number_of_samples = 25
     bandwidth_results_broadcast = Float64[]
     bandwidth_results_threads = Float64[]
     bandwidth_results_polyester = Float64[]
     bandwidth_results_blas = Float64[]
 
     println("Benchmark started!")
-    for i in 1:10
+    @assert 3 < number_of_samples && number_of_samples <= 100
+    for i in 1:number_of_samples
         println("Running benchmark ", i)
         bandwidth_broadcast, bandwidth_threads, bandwidth_polyester, bandwidth_blas = estimate_bandwidth()
         push!(bandwidth_results_broadcast, bandwidth_broadcast)
@@ -73,6 +75,7 @@ function main()
     end
 
     println("Number of threads specified in the current environment: ", Threads.nthreads())
+    println("Number of samples for statistics: ", number_of_samples)
     println("Memory Bandwidth Broadcast -> \tMedian: $(round(median(bandwidth_results_broadcast), digits=5)) GB/s, Average: $(round(mean(bandwidth_results_broadcast), digits=5)), Std Dev: $(round(std(bandwidth_results_broadcast), digits=5)) GB/s")
     println("Memory Bandwidth Threads -> \tMedian: $(round(median(bandwidth_results_threads), digits=5)) GB/s, Average: $(round(mean(bandwidth_results_threads), digits=5)), Std Dev: $(round(std(bandwidth_results_threads), digits=5)) GB/s")
     println("Memory Bandwidth Polyester -> \tMedian: $(round(median(bandwidth_results_polyester), digits=5)) GB/s, Average: $(round(mean(bandwidth_results_polyester), digits=5)), Std Dev: $(round(std(bandwidth_results_polyester), digits=5)) GB/s")
